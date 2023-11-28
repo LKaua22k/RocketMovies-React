@@ -1,6 +1,7 @@
 export default {
     COLORS: {
         BACKGROUND_ROSE: "#272024",
+
         BACKGROUND_900: "#0D0C0F",
         BACKGROUND_800: "#262529",
         BACKGROUND_700: "#1C1B1E",
@@ -11,5 +12,7 @@ export default {
         GRAY_100: "#948F99",
         GRAY_200: "#CAC4CF",
         GRAY_300: "#666360",
+
+        BORDER_COLOR:"#3E3B47"
     }
 }; 
