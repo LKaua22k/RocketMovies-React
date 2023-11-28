@@ -1,5 +1,6 @@
 export default {
     COLORS: {
+        BACKGROUND_ROSE: "#272024",
         BACKGROUND_900: "#0D0C0F",
         BACKGROUND_800: "#262529",
         BACKGROUND_700: "#1C1B1E",
