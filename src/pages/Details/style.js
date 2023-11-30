@@ -12,7 +12,7 @@ export const Container = styled.div`
 
     > main{
         grid-area: content;
-        padding: 40px 0 123px 123px;
+        padding: 40px 123px;
         overflow-y: auto;
     }
 `
@@ -21,6 +21,8 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 1137px;
+    margin: 0 auto;
+    
 
     > a {
         display: flex;
@@ -33,10 +35,36 @@ export const Content = styled.div`
         }
     }
 
-    > h1 {
+    .Title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 19px;
+
+        > h1 {
         font-size: 36px;
         font-weight: 500;
         margin: 24px 0;
+        }
+
+        >ul{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            > svg {
+                font-size: 22px;
+                align-items: center;
+                color: ${({theme}) => theme.COLORS.ROSE};
+                fill: ${({theme}) => theme.COLORS.ROSE} ;
+            }
+        }
+    }
+
+    > p{
+        font-size: 16px;
+        font-weight: 400;
     }
 `;
 
@@ -63,5 +91,21 @@ export const Status = styled.div`
             color: ${({theme}) => theme.COLORS.WHITE};
         }
 
+    }
+`
+
+export const Cate = styled.ul`
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin: 40px 0;
+
+    > li {
+        list-style: none;
+        font-size: 12px;
+        font-weight: 400;
+        background-color: ${({theme}) => theme.COLORS.BACKGROUND_ROSE};
+        padding: 8px 16px;
+        border-radius: 8px;
     }
 `
