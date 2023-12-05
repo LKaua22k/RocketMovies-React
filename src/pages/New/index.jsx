@@ -1,5 +1,6 @@
 import {FiArrowLeft} from 'react-icons/fi'
-import { Container} from "./style";
+import { Container , Form} from "./style";
+import {Link} from '../../components/Link'
 
 import { Header } from '../../components/Header'
 export function New(){
@@ -7,7 +8,12 @@ export function New(){
         <Container>
             <Header />
             <main>
-                <a href=""><FiArrowLeft/> Voltar</a>
+                <Form>
+                    <header>
+                        <Link icon={FiArrowLeft} title="Voltar"/>
+                        <h1>Novo filme</h1>
+                    </header>
+                </Form>
             </main>
         </Container>
     )
