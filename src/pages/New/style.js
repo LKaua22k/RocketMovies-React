@@ -17,7 +17,6 @@ export const Container = styled.div`
 
 export const Form = styled.form`
     max-width: 1137px;
-    border: 1px solid red;
     margin: 40px auto;
 
     > header {
@@ -26,5 +25,33 @@ export const Form = styled.form`
         align-items: left;
         justify-content: center;
         gap: 24px;
+    }
+
+    .inputs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        margin: 40px 0;
+    }
+
+    > section{
+        margin: 40px 0;
+
+        h2{
+            font-size: 20px;
+            font-weight: 400;
+            color: ${({theme}) => theme.COLORS.GRAY_400};
+        }
+    }
+
+    .btns{
+        display: flex;
+        gap: 40px;
+
+        > button:first-child{
+            background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+            color: ${({theme}) => theme.COLORS.ROSE};
+        }
     }
 `;

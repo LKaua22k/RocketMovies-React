@@ -12,6 +12,7 @@ export default {
         GRAY_100: "#948F99",
         GRAY_200: "#CAC4CF",
         GRAY_300: "#666360",
+        GRAY_400: "#999591",
 
         BORDER_COLOR:"#3E3B47"
     }
