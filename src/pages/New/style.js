@@ -43,6 +43,17 @@ export const Form = styled.form`
             font-weight: 400;
             color: ${({theme}) => theme.COLORS.GRAY_400};
         }
+
+        .tags{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+            gap: 20px;
+        }
     }
 
     .btns{

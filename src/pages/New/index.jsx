@@ -5,6 +5,7 @@ import {Link} from '../../components/Link'
 import {Input} from '../../components/Input'
 import {Textarea} from '../../components/Textarea'
 import {Button} from '../../components/Button'
+import { NoteItem } from '../../components/NoteItem';
 
 import { Header } from '../../components/Header'
 export function New(){
@@ -28,8 +29,9 @@ export function New(){
                     <section>
                         <h2>Marcadores</h2>
 
-                        <div>
-
+                        <div className='tags'>
+                            <NoteItem value='React'/>
+                            <NoteItem isNew value="Nodejs"/>
                         </div>
                     </section>
 
