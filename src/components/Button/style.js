@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 56px;
     padding: 0 16px;
@@ -12,8 +15,13 @@ export const Container = styled.button`
     font-weight: 500;
     transition: .5s;
 
+
     &:hover{
         opacity: 0.8;
         transition: .5s;
+    }
+
+    > svg {
+        margin-right: 8px;
     }
 `;

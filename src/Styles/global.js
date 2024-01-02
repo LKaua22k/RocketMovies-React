@@ -19,7 +19,11 @@ export default createGlobalStyle`
 
     a {
         text-decoration: none;
-        cursor: pointer;
+        cursor: pointer
+    }
+
+    ul{
+        list-style: none;
     }
     
     button{
