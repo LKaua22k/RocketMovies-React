@@ -32,39 +32,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     grid-area: content;
-    overflow-y:auto;
+    width: 100%;
     padding: 0 123px;
     margin-top: 30px;
-
-    > section{
-        display: flex;
-        gap: 15px;
-        flex-direction: column;
-        background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
-        padding: 32px;
-        border-radius: 16px;
-
-        strong{
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        p{
-            color: ${({theme}) => theme.COLORS.GRAY_400};
-            font-size: 16px;
-            font-weight: 400;
-            align-self: stretch;
-        }
-
-        ul{
-            display: flex;
-            gap: 8px;
-
-            >li {
-                background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
-                padding: 5px 16px;
-                border-radius: 10px;
-            }
-        }
-    }
 `
