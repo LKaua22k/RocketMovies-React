@@ -1,13 +1,13 @@
 import {FiArrowLeft} from 'react-icons/fi'
 
 import { Container , Form} from "./style";
-import {Link} from '../../components/Link'
 import {Input} from '../../components/Input'
 import {Textarea} from '../../components/Textarea'
 import {Button} from '../../components/Button'
 import { NoteItem } from '../../components/NoteItem';
 
 import { Header } from '../../components/Header'
+import { Link } from 'react-router-dom';
 export function New(){
     return(
         <Container>
@@ -15,7 +15,10 @@ export function New(){
             <main>
                 <Form>
                     <header>
-                        <Link icon={FiArrowLeft} title="Voltar"/>
+                        <Link to="/">
+                            <FiArrowLeft></FiArrowLeft>
+                            Voltar
+                        </Link>
                         <h1>Novo filme</h1>
                     </header>
 
