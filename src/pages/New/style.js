@@ -31,6 +31,8 @@ export const Form = styled.form`
             align-items: center;
             gap: 8px;
             color: ${({theme}) => theme.COLORS.ROSE};
+            border: none;
+            background: transparent;
 
             > svg{
                 font-size: 16px;

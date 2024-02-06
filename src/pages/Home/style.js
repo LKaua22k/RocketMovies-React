@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
+    width: 100%;
     grid-template-rows: 112px auto auto ;
     grid-template-areas: 
     "header"
     "brand"
     "content"
     ;
-    width: 100%;
 
     > section{
         grid-area: brand;
@@ -58,4 +58,5 @@ export const Content = styled.div`
     width: 100%;
     padding: 0 123px;
     margin-top: 30px;
+    overflow-y: ;
 `

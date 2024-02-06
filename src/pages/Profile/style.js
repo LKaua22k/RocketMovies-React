@@ -14,7 +14,7 @@ export const Container = styled.div`
 
         padding: 0 168px;
 
-        > a {
+        > button {
             font-size: 16px;
             font-weight: 400;
             display: flex;
@@ -22,6 +22,8 @@ export const Container = styled.div`
             justify-content: center;
             gap: 8px;
             color: ${({theme}) => theme.COLORS.ROSE};
+            border: none;
+            background-color: transparent;
         }
 }
 `

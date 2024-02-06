@@ -25,19 +25,19 @@ export const Container = styled.header`
     }
 `
 
-export const Profile = styled(Link)`
+export const Profile = styled.div`
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 9px;   
 
-    > img{
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
+    > .Avatar img{
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
     }
 
     > div{
-        width: 100px;
+        width: 85px;
         display: flex;
         flex-direction: column;
         align-items: end;
@@ -54,4 +54,11 @@ export const Profile = styled(Link)`
             font-weight: 400;
         }
     }
+`
+
+export const Search = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0 64px;
+    flex-grow: 1;
 `

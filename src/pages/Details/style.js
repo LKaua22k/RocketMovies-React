@@ -15,6 +15,8 @@ export const Container = styled.div`
         padding: 40px 123px;
         overflow-y: auto;
     }
+
+
 `
 
 export const Content = styled.div`
@@ -60,12 +62,21 @@ export const Content = styled.div`
                 fill: ${({theme}) => theme.COLORS.ROSE} ;
             }
         }
+
+
     }
 
     > p{
         font-size: 16px;
         font-weight: 400;
     }
+
+    > footer button{
+            background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+            color: ${({theme}) => theme.COLORS.ROSE};
+            width: 300px;
+            margin-top: 30px;
+        }
 `;
 
 export const Status = styled.div`
@@ -100,12 +111,7 @@ export const Cate = styled.ul`
     gap: 8px;
     margin: 40px 0;
 
-    > li {
-        list-style: none;
-        font-size: 12px;
-        font-weight: 400;
-        background-color: ${({theme}) => theme.COLORS.BACKGROUND_ROSE};
-        padding: 8px 16px;
-        border-radius: 8px;
+    > span {
+        background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
     }
 `

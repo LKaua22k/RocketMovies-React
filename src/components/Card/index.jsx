@@ -1,30 +1,32 @@
 import { Container } from "./style";
 import {FiStar} from 'react-icons/fi'
+import {Tag} from '../../components/Tag'
+import { Rating } from "../Rating";
 
 
-export function Card({title}){
+export function Card({data, ...rest}){
     return(
-        <Container>
+        <Container {...rest}>
             <header>
-                <strong>{title}</strong>
+                <strong>{data.title}</strong>
                         
-                <div className='stars'>
-                    <FiStar />
-                    <FiStar />
-                    <FiStar />
-                    <FiStar />
-                </div>
+                <Rating ratingStar={data.rating} isBig={false}> </Rating>
+
             </header>
 
             <main>
-                <p>Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se</p>
+                <p>{data.description}</p>
             </main>
 
-                <ul>
-                    <li>Ficção Científica</li>
-                    <li>Drama</li>
-                    <li>Família</li>
-                </ul>    
+                {
+                    data.tags && (
+                        <footer>
+                            {data.tags.map(tag => (
+                                <Tag key={String(tag.id)} title={tag.name}/>
+                            ))}
+                        </footer>
+                    )
+                }
         </Container>        
     )    
 }

@@ -1,52 +1,97 @@
 import {FiArrowLeft,FiClock,FiStar} from 'react-icons/fi'
 import { Container, Content, Status, Cate} from "./style";
-
 import { Header } from '../../components/Header'
+import {Tag} from '../../components/Tag'
+import { Button} from '../../components/Button';
+import { Rating } from '../../components/Rating';
+import { api } from '../../services/api';
+import { useEffect, useState } from 'react';
+import avatarPlaceholder from '../../../assets/avatar_placeholder.svg'
+
+import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
+
 export function Details(){
+    const navigate = useNavigate()
+    const {user} = useAuth()
+    const [data, setData] = useState(null)
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+    const params = useParams()
+
+    function handdleBack(){
+        navigate(-1)
+    }
+
+    async function handdleRemove(){
+        const confirm = window.confirm('Deseja excluir essa nota?')
+    
+        if(confirm){
+          api.delete(`/notes/${params.id}`)
+          navigate(-1)
+        }
+      }
+
+    useEffect(() => {
+        async function fecthNote(){
+            const response = await api.get(`/notes/${params.id}`);
+            setData(response.data)
+        }
+
+        fecthNote();
+    }, [])
+
+    
     return(
         <Container>
             <Header />
 
-            <main>
-                <Content>
-                    <a href=""><FiArrowLeft/> Voltar</a>
+            {
+                data && 
+                    <main>
+                        <Content>
+                            <a onClick={() => handdleBack()}><FiArrowLeft/> Voltar</a>
 
-                    <div className='Title'>
-                        <h1>Interestellar</h1>
+                            <div className='Title'>
+                                <h1>{data.title}</h1>
 
-                        <ul>
-                        <FiStar />   
-                         <FiStar />   
-                         <FiStar />   
-                         <FiStar />
-                        </ul>   
-                    </div>
+                            <Rating ratingStar={data.rating} isBig> </Rating>
+                                
+                            </div>
 
-                    <Status>
-                        <div>
-                            <img src="https://github.com/LKaua22k.png" alt="" srcset="" />
-                            <span>Por Kauã Araujo</span>
-                        </div>
+                            <Status>
+                                <div>
+                                    <img src={avatarUrl} alt={user.name} />
+                                    <span>{user.name}</span>
+                                </div>
 
-                        <div>
-                            < FiClock />
-                            <span>23/05/22 às 08:00</span>
-                        </div>
-                    </Status>
+                                <div>
+                                    < FiClock />
+                                    <span>23/05/22 às 08:00</span>
+                                </div>
+                            </Status>
 
-                    <Cate>
-                        <li>Ficção Científica</li>
-                        <li>Drama</li>
-                        <li>Família</li>
-                    </Cate>
+                            {
+                                data.tags && 
+                                    <Cate>
+                                        {
+                                            data.tags.map(tag => {
+                                                return(
+                                                    <Tag key={String(tag.id)} title={tag.name}/>                                                
+                                                )
+                                            })
+                                        }
+                                    </Cate>
+                            }
 
-                    <p>Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela.
-                         Pai e filha descobrem que o "fantasma" é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional, deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand.
-                         O cientista revela que um buraco de minhoca foi aberto perto de Saturno e que ele leva a planetas que podem oferecer condições de sobrevivência para a espécie humana. As "missões Lázaro" enviadas anos antes identificaram três planetas potencialmente habitáveis orbitando o buraco negro Gargântua: Miller, Edmunds e Mann – nomeados em homenagem aos astronautas que os pesquisaram.
-                         Brand recruta Cooper para pilotar a nave espacial Endurance e recuperar os dados dos astronautas; se um dos planetas se mostrar habitável, a humanidade irá seguir para ele na instalação da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper devasta Murphy. <br /><br /> Além de Cooper, a tripulação da Endurance é formada pela bióloga Amelia, filha de Brand; o cientista Romilly, o físico planetário Doyle, além dos robôs TARS e CASE. Eles entram no buraco de minhoca e se dirigem a Miller, porém descobrem que o planeta possui enorme dilatação gravitacional temporal por estar tão perto de Gargântua: cada hora na superfície equivale a sete anos na Terra. Eles entram em Miller e descobrem que é inóspito já que é coberto por um oceano raso e agitado por ondas enormes. Uma onda atinge a tripulação enquanto Amelia tenta recuperar os dados de Miller, matando Doyle e atrasando a partida. Ao voltarem para a Endurance, Cooper e Amelia descobrem que 23 anos se passaram.
-</p>
-                </Content>
-            </main>
+                            <p>{data.description}</p>
+
+                            <footer>
+                                <Button title="Excluir filme" onClick={() => handdleRemove()}></Button>
+                            </footer>
+                        </Content>
+                </main>
+                
+            }
         </Container>
     )
 }
